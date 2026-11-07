@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Priyesh Dave — Portfolio</title>
-<meta name="description" content="Priyesh Dave — Senior AI Engineer. Practical AI engineering, GenAI, agents, and the systems that move intelligent ideas from prompts to production.">
+<title>Priyesh Dave — Senior AI Engineer · Enterprise Agentic Systems</title>
+<meta name="description" content="Priyesh Dave — Senior AI Engineer at American Express. Enterprise GenAI, agentic AI platforms, knowledge intelligence and autonomous operations. From prompts to production.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0A0A0A;--ink:#F2EFEA;--mute:#B5B0A8;--dim:#8E8981;--line:#2A2826;--red:#FF3B2F;--card:#121110}
+:root{--bg:#0A0A0A;--ink:#F2EFEA;--mute:#B5B0A8;--dim:#8E8981;--line:#2A2826;--red:#FF3B2F;--card:#111010;--green:#5BD08A}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -19,35 +19,32 @@ a{color:inherit}
 .wrap{max-width:1280px;margin:0 auto;padding:0 32px}
 .mask{display:block;overflow:hidden;padding-bottom:.04em}
 .mask>span{display:inline-block;will-change:transform}
-/* grain */
-body:after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:90;opacity:.06;
+.eyebrow{display:flex;align-items:center;gap:12px;color:var(--red);margin:0 0 16px}
+.eyebrow:before{content:"";width:28px;height:1px;background:var(--red)}
+body:after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:90;opacity:.05;
 background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1s steps(4) infinite}
 @keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}100%{transform:translate(0,0)}}
 
-/* loader */
 #loader{position:fixed;inset:0;background:#050505;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
 .ring{width:44px;height:44px;border:2px solid #2a2a2a;border-top-color:var(--red);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 #pct{font-family:Anton,sans-serif;font-size:64px;line-height:1}
-
-/* cursor */
-#cur{position:fixed;left:0;top:0;width:14px;height:14px;border-radius:50%;background:var(--red);pointer-events:none;z-index:95;transform:translate(-50%,-50%);transition:width .25s,height .25s,opacity .25s;mix-blend-mode:difference;opacity:0}
-#cur.big{width:64px;height:64px}
+#cur{position:fixed;left:0;top:0;width:12px;height:12px;border-radius:50%;background:var(--red);pointer-events:none;z-index:95;transition:width .25s,height .25s;mix-blend-mode:difference;opacity:0}
+#cur.big{width:56px;height:56px}
 @media (hover:none){#cur{display:none}}
+#prog{position:fixed;top:0;left:0;height:2px;background:var(--red);width:0;z-index:60}
 
-/* nav */
-header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,backdrop-filter .3s}
-header.scrolled{background:rgba(10,10,10,.72);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 32px;max-width:1280px;margin:0 auto}
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s}
+header.scrolled{background:rgba(10,10,10,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 32px;max-width:1280px;margin:0 auto}
 .logo{font-family:Anton,sans-serif;font-size:28px;text-decoration:none}
-.links{display:flex;gap:28px}
+.links{display:flex;gap:26px}
 .links a{text-decoration:none;padding:12px 0;position:relative}
 .links a:after{content:"";position:absolute;left:0;bottom:6px;height:1px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:right;transition:transform .35s}
 .links a:hover:after{transform:scaleX(1);transform-origin:left}
 .pill{background:var(--red);color:#0A0A0A;font-weight:600;font-size:14px;padding:13px 22px;border-radius:999px;text-decoration:none;display:inline-block}
-@media (max-width:760px){.links{display:none}}
+@media (max-width:900px){.links{display:none}}
 
-/* hero */
 #hero{min-height:100vh;padding-top:96px;position:relative;display:flex;flex-direction:column;justify-content:center}
 .bigword{font-size:clamp(88px,19.5vw,300px);color:var(--red);white-space:nowrap;line-height:.82;letter-spacing:-2px}
 .bigword .ch{display:inline-block;will-change:transform}
@@ -56,80 +53,115 @@ header.scrolled{background:rgba(10,10,10,.72);backdrop-filter:blur(10px);border-
 .hello{font-family:"JetBrains Mono",monospace;color:var(--mute);font-size:14px;margin:0 0 6px}
 .name{font-size:clamp(64px,9vw,132px)}
 .role{font-size:clamp(22px,2.4vw,32px);color:var(--red);margin-top:16px}
-.lead{font-size:17px;line-height:1.65;color:#C9C4BC;max-width:470px;margin:24px 0 0}
+.lead{font-size:17px;line-height:1.65;color:#C9C4BC;max-width:500px;margin:24px 0 0}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.btn{font-weight:600;font-size:15px;padding:15px 26px;text-decoration:none;display:inline-block;transition:transform .2s}
+.btn{font-weight:600;font-size:15px;padding:15px 26px;text-decoration:none;display:inline-block;transition:transform .2s,background .2s}
 .btn.solid{background:var(--red);color:#0A0A0A}
 .btn.ghost{border:1px solid #4A4743}
 .btn:hover{transform:translateY(-2px)}
 .photo{aspect-ratio:4/5;max-height:620px;width:100%;background:radial-gradient(circle at 50% 40%,#3a1410 0%,#160909 40%,#0A0A0A 72%);display:flex;align-items:flex-end;justify-content:center;position:relative;overflow:hidden}
 .photo img{position:relative;width:96%;height:auto;display:block;-webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent 97%);mask-image:linear-gradient(to bottom,#000 72%,transparent 97%);filter:contrast(1.05) saturate(.92)}
-.ring2{position:absolute;width:78%;aspect-ratio:1;border:1px solid rgba(255,59,47,.45);border-radius:50%;top:8%;animation:spin 30s linear infinite;border-style:dashed}
-.badge{position:absolute;left:16px;top:16px;background:var(--red);color:#0A0A0A;padding:8px 12px;transform:rotate(-4deg);font-weight:500}
-.photo .glow{position:absolute;width:60%;aspect-ratio:1;border-radius:50%;background:var(--red);filter:blur(90px);opacity:.25;animation:pulse 5s ease-in-out infinite}
+.photo .glow{position:absolute;width:60%;aspect-ratio:1;border-radius:50%;background:var(--red);filter:blur(90px);opacity:.25;top:15%;animation:pulse 5s ease-in-out infinite}
 @keyframes pulse{50%{opacity:.4;transform:scale(1.15)}}
+.ring2{position:absolute;width:78%;aspect-ratio:1;border:1px dashed rgba(255,59,47,.45);border-radius:50%;top:8%;animation:spin 30s linear infinite}
+.badge{position:absolute;left:16px;top:16px;background:var(--red);color:#0A0A0A;padding:8px 12px;transform:rotate(-4deg);font-weight:500}
+.badge2{position:absolute;right:16px;bottom:28px;background:#0A0A0A;border:1px solid #3A3835;color:var(--ink);padding:8px 12px;transform:rotate(3deg);display:flex;gap:8px;align-items:center}
+.badge2 i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:blink 1.6s steps(1) infinite}
 .metaRow{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:48px;padding:20px 0 40px;border-top:1px solid var(--line);color:var(--mute)}
-.scrollcue{position:absolute;right:32px;bottom:40px;writing-mode:vertical-rl;color:var(--dim)}
-@media (max-width:860px){.scrollcue{display:none}}
 
-/* marquee */
-.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:26px 0;background:#0d0c0c}
-.track{display:flex;gap:48px;width:max-content;animation:mq 32s linear infinite}
-.track span{font-family:Anton,sans-serif;font-size:44px;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px #5a5651;white-space:nowrap}
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:24px 0;background:#0d0c0c}
+.track{display:flex;gap:44px;width:max-content;animation:mq 40s linear infinite}
+.track span{font-family:Anton,sans-serif;font-size:40px;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px #5a5651;white-space:nowrap}
 .track span.f{color:var(--ink);-webkit-text-stroke:0}
-.track i{color:var(--red);font-style:normal;font-family:Anton,sans-serif;font-size:44px}
+.track i{color:var(--red);font-style:normal;font-family:Anton,sans-serif;font-size:40px}
 @keyframes mq{to{transform:translateX(-50%)}}
 
-/* work horizontal */
-#work{position:relative}
-.work-head{padding:140px 0 48px}
-.hscroll{display:flex;gap:28px;padding:0 32px 120px;width:max-content}
-.card{width:min(520px,82vw);min-height:520px;background:var(--card);border:1px solid var(--line);padding:40px;display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden;transition:border-color .3s}
-.card:hover{border-color:var(--red)}
-.card .num{font-family:Anton,sans-serif;font-size:120px;line-height:.8;color:transparent;-webkit-text-stroke:1px var(--red)}
-.card h3{font-family:Anton,sans-serif;font-size:56px;text-transform:uppercase;margin:0;line-height:.95;font-weight:400}
-.card p{color:#C9C4BC;font-size:16px;line-height:1.6;margin:0}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+/* impact */
+#impact{padding:140px 0}
+.imp{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border:2px solid var(--line);margin-top:56px}
+@media (max-width:960px){.imp{grid-template-columns:1fr 1fr}}
+.imp div{background:var(--bg);padding:36px 28px}
+.imp .n{font-family:Anton,sans-serif;font-size:clamp(64px,7vw,104px);line-height:.85;color:var(--red)}
+.imp p{color:#C9C4BC;font-size:15px;line-height:1.5;margin:14px 0 0}
+.imp .src{color:var(--dim);margin-top:10px;display:block}
+
+/* flagship cases */
+#work{padding:40px 0 60px}
+.cases{position:relative;margin-top:64px}
+.case{position:sticky;top:96px;background:var(--card);border:1px solid var(--line);padding:clamp(28px,4vw,56px);margin-bottom:40px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px);min-height:min(78vh,720px);transform-origin:center top;overflow:hidden}
+.case:nth-child(2){top:116px}.case:nth-child(3){top:136px}.case:nth-child(4){top:156px}
+@media (max-width:960px){.case{position:relative;top:auto!important;grid-template-columns:1fr;min-height:0}}
+.case .idx{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+.case .idx .no{font-family:Anton,sans-serif;font-size:72px;line-height:.8;color:transparent;-webkit-text-stroke:1px var(--red)}
+.tagorg{border:1px solid #3A3835;padding:6px 10px;color:var(--mute)}
+.case h3{font-family:Anton,sans-serif;font-size:clamp(40px,4.4vw,64px);text-transform:uppercase;line-height:.92;margin:0;font-weight:400}
+.case .sub{color:var(--red);margin:14px 0 20px}
+.case .sum{color:#D4CFC7;font-size:17px;line-height:1.6;margin:0 0 20px}
+.case ul{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:10px}
+.case li{display:grid;grid-template-columns:18px 1fr;gap:10px;color:#B5B0A8;font-size:15px;line-height:1.55}
+.case li:before{content:"→";color:var(--red);font-family:"JetBrains Mono",monospace}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
 .tags span{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--mute);border:1px solid #3A3835;padding:6px 10px}
-.card .go{font-weight:600;font-size:14px;padding:12px 0;text-decoration:none;display:inline-flex;gap:8px}
-.card .bar{position:absolute;left:0;bottom:0;height:4px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .5s}
-.card:hover .bar{transform:scaleX(1)}
-@media (max-width:860px){.hscroll{flex-direction:column;width:auto}.card{width:auto;min-height:0}}
+.case .go{display:inline-block;margin-top:22px;font-weight:600;font-size:14px;padding:12px 0;text-decoration:none;color:var(--red)}
+/* architecture flow */
+.arch{display:flex;flex-direction:column;gap:0;align-self:center;width:100%}
+.archlbl{color:var(--dim);margin-bottom:14px;display:flex;justify-content:space-between}
+.layer{border:1px solid #33312e;background:#0c0b0b;padding:14px 16px;position:relative}
+.layer .m{color:var(--dim);font-size:11px;display:block;margin-bottom:8px}
+.layer .chips{display:flex;flex-wrap:wrap;gap:6px}
+.layer .chips b{font-weight:500;font-size:13px;background:#1a1918;border:1px solid #2f2d2a;padding:5px 9px}
+.layer.hot{border-color:var(--red);background:linear-gradient(180deg,rgba(255,59,47,.10),rgba(255,59,47,.02))}
+.layer.hot .chips b{border-color:rgba(255,59,47,.5)}
+.wire{height:30px;position:relative;margin-left:28px;width:2px;background:repeating-linear-gradient(to bottom,#4a4743 0 4px,transparent 4px 8px)}
+.wire:after{content:"";position:absolute;left:-3px;width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red);animation:flow 1.6s linear infinite}
+@keyframes flow{0%{top:-4px;opacity:0}20%{opacity:1}100%{top:26px;opacity:0}}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);margin-top:18px;border:1px solid var(--line)}
+.kpis div{background:#0c0b0b;padding:14px}
+.kpis strong{font-family:Anton,sans-serif;font-size:32px;color:var(--ink);display:block;line-height:1;font-weight:400}
+.kpis span{color:var(--dim);font-size:12px;line-height:1.35;display:block;margin-top:6px}
 
-/* amex */
-.ent{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px;margin-top:48px}
-.ent div{border-top:3px solid var(--red);padding-top:20px}
-.ent h4{font-size:20px;font-weight:600;margin:0 0 10px}
-.ent p{color:#C9C4BC;font-size:15px;line-height:1.6;margin:0}
-
-/* stats */
-#stats{padding:140px 0}
-.stats-grid{display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:40px;align-items:end}
-@media (max-width:960px){.stats-grid{grid-template-columns:1fr 1fr}}
-.stat .n{font-family:Anton,sans-serif;font-size:clamp(88px,10vw,150px);line-height:.85;color:var(--red)}
-.stat p{color:#C9C4BC;font-size:15px;line-height:1.5;margin:10px 0 0;max-width:220px}
-
-/* code that ships */
-#ships{padding:140px 0;border-top:1px solid var(--line);position:relative}
+/* ships */
+#ships{padding:140px 0;border-top:1px solid var(--line)}
 .ships-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start}
 @media (max-width:900px){.ships-grid{grid-template-columns:1fr}}
 .ships-title{font-size:clamp(64px,8.5vw,128px)}
-.principles{list-style:none;margin:48px 0 0;padding:0;display:grid;gap:0}
+.principles{list-style:none;margin:48px 0 0;padding:0}
 .principles li{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--line)}
 .principles li:last-child{border-bottom:1px solid var(--line)}
 .principles b{font-family:"JetBrains Mono",monospace;color:var(--red);font-weight:500;font-size:13px;padding-top:4px}
 .principles h4{margin:0 0 6px;font-size:19px;font-weight:600}
 .principles p{margin:0;color:#B5B0A8;font-size:15px;line-height:1.55}
-.stamp{background:var(--red);color:#0A0A0A;padding:36px;transform:rotate(-3deg);box-shadow:0 30px 80px rgba(255,59,47,.25);position:sticky;top:120px}
+.stamp{background:var(--red);color:#0A0A0A;padding:36px;transform:rotate(-3deg);box-shadow:0 30px 80px rgba(255,59,47,.25)}
 .stamp .d{font-size:clamp(34px,3.6vw,52px);line-height:.95}
 .stamp .m{color:#2a0b08;margin-top:24px;display:block}
-.term{margin-top:40px;background:#0e0d0d;border:1px solid var(--line);font-family:"JetBrains Mono",monospace;font-size:13px;line-height:1.9;padding:20px 22px;color:#C9C4BC;min-height:190px}
-.term .ok{color:#5BD08A}.term .r{color:var(--red)}
+.term{margin-top:40px;background:#0e0d0d;border:1px solid var(--line);font-family:"JetBrains Mono",monospace;font-size:13px;line-height:1.9;padding:18px 22px 22px;color:#C9C4BC;min-height:250px}
+.term .bar{display:flex;gap:6px;margin-bottom:12px}.term .bar i{width:10px;height:10px;border-radius:50%;background:#2e2c2a}
+.term .ok{color:var(--green)}.term .r{color:var(--red)}.term .g{color:var(--dim)}
 .caret{display:inline-block;width:8px;height:15px;background:var(--red);vertical-align:-2px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 
+/* stack */
+#stack{padding:140px 0;border-top:1px solid var(--line)}
+.matrix{margin-top:56px;border-top:1px solid var(--line)}
+.mrow{display:grid;grid-template-columns:280px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line);align-items:start}
+@media (max-width:760px){.mrow{grid-template-columns:1fr;gap:12px}}
+.mrow h4{margin:0;font-size:20px;font-weight:600;display:flex;gap:14px;align-items:baseline}
+.mrow h4 .m{color:var(--red);font-size:12px}
+.mrow .tags span{font-size:13px;color:#D4CFC7;transition:border-color .2s,color .2s}
+.mrow .tags span:hover{border-color:var(--red);color:var(--ink)}
+
+/* oss */
+#lab{padding:40px 0 140px}
+.oss{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px;background:var(--line);border:2px solid var(--line);margin-top:48px}
+.oss a{background:var(--bg);padding:32px;text-decoration:none;display:flex;flex-direction:column;gap:12px;transition:background .3s}
+.oss a:hover{background:#151413}
+.oss h4{font-family:Anton,sans-serif;font-size:36px;font-weight:400;text-transform:uppercase;margin:0;line-height:1}
+.oss .k{color:var(--red)}
+.oss p{color:#B5B0A8;font-size:15px;line-height:1.55;margin:0}
+.oss .tags{margin-top:auto}
+
 /* experience */
-#experience{padding:140px 0}
+#experience{padding:140px 0;border-top:1px solid var(--line)}
 .tl{position:relative;margin-top:56px;padding-left:36px}
 .tl:before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:var(--line)}
 .tl .fill{position:absolute;left:6px;top:8px;width:2px;height:0;background:var(--red)}
@@ -137,37 +169,39 @@ header.scrolled{background:rgba(10,10,10,.72);backdrop-filter:blur(10px);border-
 .job:before{content:"";position:absolute;left:-36px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--red)}
 .job .when{color:var(--mute)}
 .job h3{font-size:clamp(28px,3vw,40px);margin:8px 0 4px}
-.job .at{color:var(--red);font-size:16px;margin:0 0 10px}
-.job p{color:#C9C4BC;font-size:16px;line-height:1.6;margin:0;max-width:640px}
+.job .at{color:var(--red);font-size:16px;margin:0 0 12px}
+.job ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;max-width:760px}
+.job li{color:#C9C4BC;font-size:15px;line-height:1.6;display:grid;grid-template-columns:18px 1fr;gap:8px}
+.job li:before{content:"—";color:var(--dim)}
 
-/* series */
-#writing{padding:40px 0 140px}
-.series{border:1px solid var(--line);padding:clamp(32px,5vw,72px);display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;overflow:hidden}
-@media (max-width:860px){.series{grid-template-columns:1fr}}
-.series .ghost105{position:absolute;right:-20px;bottom:-60px;font-family:Anton,sans-serif;font-size:340px;line-height:1;color:transparent;-webkit-text-stroke:1px #2c2a28;pointer-events:none}
-.days{display:grid;grid-template-columns:repeat(21,1fr);gap:4px;margin-top:28px}
+/* writing */
+#writing{padding:140px 0;border-top:1px solid var(--line)}
+.wgrid{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;margin-top:48px}
+@media (max-width:900px){.wgrid{grid-template-columns:1fr}}
+.series{border:1px solid var(--line);padding:36px;position:relative;overflow:hidden}
+.series .ghost105{position:absolute;right:-16px;bottom:-50px;font-family:Anton,sans-serif;font-size:240px;line-height:1;color:transparent;-webkit-text-stroke:1px #2c2a28;pointer-events:none}
+.days{display:grid;grid-template-columns:repeat(21,1fr);gap:4px;margin-top:24px;position:relative}
 .days i{aspect-ratio:1;background:#1c1b1a;display:block}
 .days i.on{background:var(--red)}
+.notes{display:grid;gap:2px;background:var(--line);border:1px solid var(--line)}
+.note{background:var(--bg);padding:24px 26px;text-decoration:none;display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:center;transition:background .3s}
+.note .m{color:var(--mute);grid-column:1}
+.note h4{font-size:19px;font-weight:600;line-height:1.3;margin:0;grid-column:1}
+.note b{font-size:24px;color:var(--red);grid-column:2;grid-row:1/3;transition:transform .3s}
+.note:hover{background:#151413}.note:hover b{transform:translateX(6px)}
 
-.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;background:var(--line);border:2px solid var(--line);margin-top:48px}
-.note{background:var(--bg);padding:32px;text-decoration:none;display:flex;flex-direction:column;gap:12px;position:relative;transition:background .3s}
-.note .m{color:var(--mute)}
-.note h4{font-size:22px;font-weight:600;line-height:1.25;margin:0}
-.note p{color:#B5B0A8;font-size:15px;line-height:1.55;margin:0}
-.note b{font-size:24px;color:var(--red);margin-top:auto;transition:transform .3s}
-.note:hover{background:#151413}.note:hover b{transform:translateX(8px)}
 /* recognition */
-.rec{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.rec div{background:#141312;padding:26px;transition:transform .3s,background .3s}
-.rec div:hover{transform:translateY(-4px);background:#1a1817}
-.rec p{margin:0}.rec .k{color:var(--mute);margin-bottom:8px}.rec .v{font-size:18px;font-weight:600}
+.rec{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+@media (max-width:960px){.rec{grid-template-columns:1fr 1fr!important}}@media (max-width:520px){.rec{grid-template-columns:1fr!important}}
+.rec div{background:#141312;padding:24px;transition:transform .3s,background .3s;border-top:2px solid transparent}
+.rec div:hover{transform:translateY(-4px);background:#1a1817;border-top-color:var(--red)}
+.rec p{margin:0}.rec .k{color:var(--mute);margin-bottom:8px}.rec .v{font-size:17px;font-weight:600;line-height:1.35}.rec .s{color:var(--dim);font-size:14px;margin-top:6px;line-height:1.45}
 
-/* contact */
-#contact{padding:160px 0 64px;position:relative}
+#contact{padding:160px 0 64px;position:relative;border-top:1px solid var(--line)}
 .together{font-size:clamp(72px,12.5vw,200px)}
 .forreal{position:absolute;right:6%;top:150px;background:var(--red);color:#0A0A0A;padding:14px 22px;transform:rotate(8deg);font-size:clamp(22px,2.6vw,36px)}
 @media (max-width:760px){.forreal{position:static;display:inline-block;margin-top:24px}}
-.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:64px}
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px 24px;margin-top:64px}
 .contacts a{border-top:1px solid #4A4743;padding:20px 0;text-decoration:none;font-size:17px;transition:color .2s,border-color .2s}
 .contacts a:hover{color:var(--red);border-color:var(--red)}
 .contacts .m{display:block;color:var(--mute);margin-bottom:6px}
@@ -182,15 +216,16 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
 <div id="loader" aria-hidden="true">
   <div class="ring"></div>
   <div id="pct">0</div>
-  <div class="m" style="color:var(--dim)">Booting agents</div>
+  <div class="m" style="color:var(--dim)">Initialising agents</div>
 </div>
 <div id="cur" aria-hidden="true"></div>
+<div id="prog" aria-hidden="true"></div>
 
 <header id="hdr">
   <div class="nav">
     <a href="#hero" class="logo">PD<span class="red">.</span></a>
     <nav class="links m" aria-label="Main">
-      <a href="#work">Work</a><a href="#ships">Approach</a><a href="#experience">Experience</a><a href="#writing">Writing</a>
+      <a href="#work">Flagship work</a><a href="#ships">Approach</a><a href="#stack">Stack</a><a href="#experience">Experience</a><a href="#writing">Writing</a>
     </nav>
     <a href="#contact" class="pill hov">Let's talk</a>
   </div>
@@ -204,11 +239,11 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
       <div>
         <p class="hello">Hello, I'm</p>
         <h2 class="d name"><span class="mask"><span>Priyesh</span></span><span class="mask"><span>Dave</span></span></h2>
-        <p class="d role"><span class="mask"><span>Senior AI Engineer</span></span><span class="mask"><span>&amp; agentic systems builder</span></span></p>
-        <p class="lead hfade">I build the connective tissue between a good idea and a system that can carry weight — enterprise AI, GenAI and agentic systems at American Express. 8+ years turning research into production.</p>
+        <p class="d role"><span class="mask"><span>Senior AI Engineer</span></span><span class="mask"><span>Enterprise agentic systems</span></span></p>
+        <p class="lead hfade">I architect enterprise GenAI and multi-agent platforms that take work off people's plates — from strategy and governance to production systems at American Express. 8+ years turning research into production.</p>
         <div class="ctas hfade">
-          <a href="#work" class="btn solid hov">See the work →</a>
-          <a href="#writing" class="btn ghost hov">Zero to Agentic</a>
+          <a href="#work" class="btn solid hov">Flagship work →</a>
+          <a href="#contact" class="btn ghost hov">Get in touch</a>
         </div>
       </div>
       <div class="photo hfade" id="photo">
@@ -216,166 +251,252 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
         <div class="ring2" aria-hidden="true"></div>
         <img src="me.webp" alt="Priyesh Dave" id="me">
         <span class="badge m">3× Patent inventor</span>
+        <span class="badge2 m"><i></i>Agents in production</span>
       </div>
     </div>
-    <div class="metaRow m hfade"><span>From prompts to production</span><span>Based in Bangalore</span><span>AI / GenAI / Agents — ideas in public</span></div>
+    <div class="metaRow m hfade"><span>American Express</span><span>Bengaluru, India</span><span>From prompts to production</span></div>
   </div>
-  <div class="scrollcue m">Scroll ↓</div>
 </section>
 
-<div class="marquee" aria-label="Stack">
+<div class="marquee" aria-label="Core technologies">
   <div class="track">
-    <span class="f">Python</span><i>✦</i><span>TensorFlow</span><i>✦</i><span class="f">LLMs</span><i>✦</i><span>BERT</span><i>✦</i><span class="f">MCP</span><i>✦</i><span>A2A</span><i>✦</i><span class="f">Claude</span><i>✦</i><span>Google Cloud</span><i>✦</i><span class="f">Postgres</span><i>✦</i><span>Agents</span><i>✦</i>
-    <span class="f">Python</span><i>✦</i><span>TensorFlow</span><i>✦</i><span class="f">LLMs</span><i>✦</i><span>BERT</span><i>✦</i><span class="f">MCP</span><i>✦</i><span>A2A</span><i>✦</i><span class="f">Claude</span><i>✦</i><span>Google Cloud</span><i>✦</i><span class="f">Postgres</span><i>✦</i><span>Agents</span><i>✦</i>
+    <span class="f">Multi-agent systems</span><i>✦</i><span>MCP</span><i>✦</i><span class="f">A2A</span><i>✦</i><span>LangGraph</span><i>✦</i><span class="f">GraphRAG</span><i>✦</i><span>Knowledge graphs</span><i>✦</i><span class="f">LLMOps</span><i>✦</i><span>Fine-tuning</span><i>✦</i><span class="f">Kubernetes</span><i>✦</i><span>GCP · AWS</span><i>✦</i>
+    <span class="f">Multi-agent systems</span><i>✦</i><span>MCP</span><i>✦</i><span class="f">A2A</span><i>✦</i><span>LangGraph</span><i>✦</i><span class="f">GraphRAG</span><i>✦</i><span>Knowledge graphs</span><i>✦</i><span class="f">LLMOps</span><i>✦</i><span>Fine-tuning</span><i>✦</i><span class="f">Kubernetes</span><i>✦</i><span>GCP · AWS</span><i>✦</i>
   </div>
 </div>
 
+
 <section id="work">
-  <div class="wrap work-head">
-    <p class="m red rv">Selected work</p>
+  <div class="wrap">
+    <p class="m eyebrow rv">Flagship work</p>
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px">
       <h2 class="d" style="font-size:clamp(64px,9vw,140px)"><span class="mask"><span>Work that</span></span><span class="mask"><span class="red">ships.</span></span></h2>
-      <p class="rv" style="color:var(--mute);font-size:16px;line-height:1.6;max-width:380px;margin:0">Side builds and open source. Each one started as a problem I hit at work.</p>
+      <p class="rv" style="color:var(--mute);font-size:16px;line-height:1.6;max-width:420px;margin:0">Four programmes — from enterprise strategy to running systems. Each one pairs an architecture with the outcome it was built to move.</p>
     </div>
-  </div>
-  <div class="hwrap" id="hwrap">
-    <div class="hscroll" id="hscroll">
-      <article class="card hov">
-        <span class="num">01</span><span class="m red">Flagship · Agentic AI</span><h3>Orbit</h3>
-        <p>An agentic AI workspace that brings together the fragmented information, conversations, tasks, meetings and project signals enterprise teams deal with every day — and turns them into decisions and next steps.</p>
-        <p style="color:var(--mute);font-size:14px">Catch Up · Daily Plan · Readiness — multi-agent orchestration, persona-aware reasoning, MCP connectivity, cost and latency observability.</p>
-        <div class="tags"><span>Multi-agent</span><span>MCP</span><span>Observability</span></div>
-        <a href="https://github.com/PriyeshDave/About-Orbit" class="go">View repository →</a><span class="bar"></span>
-      </article>
-      <article class="card hov">
-        <span class="num">02</span><span class="m red">Building</span><h3>BlogMind</h3>
-        <p>AI-powered technical content pipeline that discovers topics, researches, drafts, critiques, reviews and publishes blogs — with human-in-the-loop governance.</p>
-        <div class="tags"><span>AI engineering</span><span>LLMs</span><span>Human-in-the-loop</span></div>
-        <a href="https://github.com/PriyeshDave/BlogMind" class="go">View repository →</a><span class="bar"></span>
-      </article>
-      <article class="card hov">
-        <span class="num">03</span><span class="m red">Experiment</span><h3>SkillFlow</h3>
-        <p>AI-powered curriculum engine that turns structured learning roadmaps into continuous, human-reviewed technical content — from generation to automated publishing.</p>
-        <div class="tags"><span>AI agents</span><span>Automation</span></div>
-        <a href="https://github.com/PriyeshDave/SkillFlow" class="go">View repository →</a><span class="bar"></span>
-      </article>
-      <article class="card hov">
-        <span class="num">04</span><span class="m red">Building</span><h3>FocusPilot</h3>
-        <p>An AI workday planner that uses Model Context Protocol to gather context from enterprise tools and generate prioritised work plans.</p>
-        <div class="tags"><span>MCP</span><span>AI agents</span></div>
-        <a href="https://github.com/PriyeshDave" class="go">On GitHub →</a><span class="bar"></span>
-      </article>
-      <article class="card hov">
-        <span class="num">05</span><span class="m red">Open source</span><h3>SynthGen</h3>
-        <p>A framework for synthetic tabular data that's reliable enough for production — for teams whose real data can't leave the building.</p>
-        <div class="tags"><span>Python</span><span>Synthetic data</span></div>
-        <a href="https://github.com/PriyeshDave" class="go">On GitHub →</a><span class="bar"></span>
-      </article>
-    </div>
-  </div>
-  <div class="wrap" style="padding-bottom:40px">
-    <h3 class="d rv" style="font-size:clamp(40px,5vw,72px)">At enterprise <span class="red">scale.</span></h3>
-    <p class="rv" style="color:var(--mute);font-size:15px;line-height:1.6;max-width:560px;margin:16px 0 0">Production systems I own at American Express, described at outcome level.</p>
-    <div class="ent">
-      <div class="rv"><h4>Incident intelligence</h4><p>BERT and GenAI models that categorise and route ServiceNow incidents. DW Project Award.</p></div>
-      <div class="rv"><h4>Synthetic data for regulatory reporting</h4><p>Lets the Financial Data Engineering team build and test without exposing real records.</p></div>
-      <div class="rv"><h4>Agentic AI strategy</h4><p>Defined the Digital Workplace data and agentic AI strategy: MCP and A2A patterns, agent adoption at scale.</p></div>
-      <div class="rv"><h4>Test suites &amp; semantic data</h4><p>Lead Enterprise Functional Test Suites and the Semantic Data Intelligence Framework; mentor engineers.</p></div>
-    </div>
-  </div>
-</section>
 
-<section id="stats">
-  <div class="wrap stats-grid">
-    <h2 class="d" style="font-size:clamp(48px,5.5vw,84px)"><span class="mask"><span>Built fast.</span></span><span class="mask"><span class="red">Shipped real.</span></span></h2>
-    <div class="stat rv"><div class="n" data-to="8" data-suf="+">0</div><p>years across ML, NLP and GenAI</p></div>
-    <div class="stat rv"><div class="n" data-to="3">0</div><p>patents — Amex Inventor Award</p></div>
-    <div class="stat rv"><div class="n" data-to="105">0</div><p>days of Zero to Agentic, in public</p></div>
+    <div class="cases" id="cases">
+      <!-- 01 -->
+      <article class="case">
+        <div>
+          <div class="idx"><span class="no">01</span><span class="m tagorg">American Express · Strategy</span></div>
+          <h3>Agentic Enterprise Blueprint</h3>
+          <p class="m sub">Digital Workplace Data &amp; Agentic AI Strategy</p>
+          <p class="sum">The enterprise roadmap for how agents are designed, governed and adopted across the Digital Workplace — for knowledge discovery and next-generation servicing.</p>
+          <ul>
+            <li>Defined the strategy and roadmap that scaled agent adoption on ChatGPT and Microsoft Copilot.</li>
+            <li>Established reusable MCP and A2A interoperability patterns and simplified the Amex Agentic Brain architecture.</li>
+            <li>Authored ADRs that secured architecture, risk and governance approval for production agentic workflows.</li>
+            <li>Led the build-vs-buy assessment for incident categorisation — one of 21 critical TechCare journeys — across custom AI, ServiceNow Now Assist and Moveworks.</li>
+          </ul>
+          <div class="tags"><span>Agent strategy</span><span>MCP · A2A</span><span>ADRs &amp; governance</span><span>Build vs buy</span></div>
+        </div>
+        <div class="arch">
+          <div class="archlbl m"><span>Reference architecture</span><span class="red">● live</span></div>
+          <div class="layer"><span class="m">Business journeys</span><div class="chips"><b>Knowledge discovery</b><b>Servicing</b><b>Incident ops</b></div></div>
+          <div class="wire"></div>
+          <div class="layer hot"><span class="m">Governed agent patterns</span><div class="chips"><b>MCP tools</b><b>A2A handoffs</b><b>ADR guardrails</b><b>Risk review</b></div></div>
+          <div class="wire"></div>
+          <div class="layer"><span class="m">Orchestration core</span><div class="chips"><b>Amex Agentic Brain</b><b>Shared context</b></div></div>
+          <div class="wire"></div>
+          <div class="layer"><span class="m">Adoption surfaces</span><div class="chips"><b>ChatGPT</b><b>Microsoft Copilot</b></div></div>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="case">
+        <div>
+          <div class="idx"><span class="no">02</span><span class="m tagorg">American Express · Platform</span></div>
+          <h3>Enterprise Knowledge Intelligence Fabric</h3>
+          <p class="m sub">Knowledge curation for ChatGPT &amp; Copilot agents</p>
+          <p class="sum">A knowledge management layer that curates enterprise knowledge and serves it to ChatGPT and Microsoft Copilot — so agents answer from trusted, current sources rather than guesswork.</p>
+          <ul>
+            <li>Designed and built the enterprise-wide Knowledge Management Service, with Generative BI for on-demand analytics in natural language.</li>
+            <li>Connected curated knowledge to ChatGPT and Copilot agents for grounded answers and continuous knowledge curation.</li>
+            <li>Semantic retrieval over knowledge graphs, vector search and GraphRAG, so answers carry relationships, not just matching text.</li>
+          </ul>
+          <div class="tags"><span>Knowledge graphs</span><span>GraphRAG</span><span>Vector search</span><span>Generative BI</span></div>
+        </div>
+        <div class="arch">
+          <div class="archlbl m"><span>Reference architecture</span><span class="red">● live</span></div>
+          <div class="layer"><span class="m">Enterprise sources</span><div class="chips"><b>Knowledge articles</b><b>Runbooks</b><b>Product data</b><b>Analytics</b></div></div>
+          <div class="wire"></div>
+          <div class="layer hot"><span class="m">Curation &amp; semantic layer</span><div class="chips"><b>Knowledge graph</b><b>Vector index</b><b>GraphRAG</b><b>Freshness checks</b></div></div>
+          <div class="wire"></div>
+          <div class="layer"><span class="m">Knowledge services</span><div class="chips"><b>Retrieval APIs</b><b>Generative BI</b><b>MCP connectors</b></div></div>
+          <div class="wire"></div>
+          <div class="layer"><span class="m">Consumed by</span><div class="chips"><b>ChatGPT agents</b><b>Copilot agents</b></div></div>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="case">
+        <div>
+          <div class="idx"><span class="no">03</span><span class="m tagorg">American Express · Production</span></div>
+          <h3>Autonomous Incident Intelligence Platform</h3>
+          <p class="m sub">Smart incident data management, run by agents</p>
+          <p class="sum">Evolved incident data management from a BERT classifier into a real-time, agent-driven GenAI platform that categorises, groups, enriches and traces root cause across 100+ Digital Workplace products.</p>
+          <ul>
+            <li>Agents handle categorisation, grouping and enrichment in real time; knowledge-graph reasoning surfaces root cause.</li>
+            <li>Raised grouping accuracy by 20 points to ~98% and cut incident turnaround by 87%.</li>
+            <li>Turned multi-day reporting into under 3 minutes and released 5 FTEs to higher-value work.</li>
+          </ul>
+          <div class="tags"><span>Multi-agent</span><span>GenAI</span><span>Knowledge-graph RCA</span><span>ServiceNow</span></div>
+        </div>
+        <div class="arch">
+          <div class="archlbl m"><span>Reference architecture</span><span class="red">● live</span></div>
+          <div class="layer"><span class="m">Signal intake</span><div class="chips"><b>ServiceNow incidents</b><b>Real-time stream</b></div></div>
+          <div class="wire"></div>
+          <div class="layer hot"><span class="m">Agent crew</span><div class="chips"><b>Classify</b><b>Group</b><b>Enrich</b><b>Root-cause</b></div></div>
+          <div class="wire"></div>
+          <div class="layer"><span class="m">Reasoning</span><div class="chips"><b>Knowledge graph</b><b>Historical patterns</b></div></div>
+          <div class="kpis">
+            <div><strong>~98%</strong><span>grouping accuracy</span></div>
+            <div><strong>−87%</strong><span>incident turnaround</span></div>
+            <div><strong>&lt;3 min</strong><span>reporting, from days</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 -->
+      <article class="case">
+        <div>
+          <div class="idx"><span class="no">04</span><span class="m tagorg">Independent R&amp;D · Open demo</span></div>
+          <h3>Orbit</h3>
+          <p class="m sub">Agentic enterprise intelligence workspace</p>
+          <p class="sum">Brings together the fragmented information, conversations, tasks, meetings and project signals enterprise teams work with every day — and turns them into decisions and next steps.</p>
+          <ul>
+            <li><strong style="color:var(--ink);font-weight:600">Catch Up</strong> turns meetings into decisions, actions, risks and follow-ups.</li>
+            <li><strong style="color:var(--ink);font-weight:600">Daily Plan</strong> merges calendar, messages, tasks and deadlines into one plan.</li>
+            <li><strong style="color:var(--ink);font-weight:600">Readiness</strong> coordinates specialised agents to investigate project risks and dependencies.</li>
+          </ul>
+          <div class="tags"><span>Multi-agent orchestration</span><span>Persona-aware reasoning</span><span>MCP</span><span>Cost &amp; latency observability</span></div>
+          <a href="https://github.com/PriyeshDave/About-Orbit" class="go hov">View repository →</a>
+        </div>
+        <div class="arch">
+          <div class="archlbl m"><span>Architecture</span><span class="red">● demo</span></div>
+          <div class="layer"><span class="m">Enterprise tools</span><div class="chips"><b>Meetings</b><b>Email</b><b>Messages</b><b>Projects</b></div></div>
+          <div class="wire"></div>
+          <div class="layer hot"><span class="m">Orbit intelligence layer</span><div class="chips"><b>Context</b><b>Personas</b><b>Agent orchestration</b><b>Observability</b></div></div>
+          <div class="wire"></div>
+          <div class="layer"><span class="m">Experiences</span><div class="chips"><b>Catch Up</b><b>Daily Plan</b><b>Readiness</b></div></div>
+          <div class="wire"></div>
+          <div class="layer"><span class="m">Outcome</span><div class="chips"><b>Decisions</b><b>Priorities</b><b>Next steps</b></div></div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
 <section id="ships">
   <div class="wrap ships-grid">
     <div>
-      <p class="m red rv">How I work</p>
+      <p class="m eyebrow rv">How I work</p>
       <h2 class="d ships-title"><span class="mask"><span>Not just code.</span></span><span class="mask"><span class="red">Code that ships.</span></span></h2>
-      <p class="rv" style="font-size:18px;line-height:1.65;color:#C9C4BC;max-width:560px;margin:28px 0 0">A model in a notebook is a guess. I care about the part after the demo — evaluation, guardrails, monitoring, and the boring plumbing that keeps an agent useful on day 300.</p>
+      <p class="rv" style="font-size:18px;line-height:1.65;color:#C9C4BC;max-width:560px;margin:28px 0 0">A model in a notebook is a guess. The hard part is giving intelligence the context, constraints and governance to do meaningful work — then proving it keeps working.</p>
       <ul class="principles">
-        <li class="rv"><b>01</b><div><h4>Start from the business problem</h4><p>Every system begins with the decision it improves and the metric that proves it.</p></div></li>
-        <li class="rv"><b>02</b><div><h4>Evaluate before you scale</h4><p>Test suites and evals come first, so quality is measured, not assumed.</p></div></li>
-        <li class="rv"><b>03</b><div><h4>Design agents to be governed</h4><p>Clear tools, clear boundaries, MCP and A2A patterns a whole enterprise can adopt.</p></div></li>
-        <li class="rv"><b>04</b><div><h4>Teach what you ship</h4><p>If I can't explain it in a 60-second Reel, I don't understand it well enough yet.</p></div></li>
+        <li class="rv"><b>01</b><div><h4>Start from the business outcome</h4><p>Every system begins with the decision it improves and the metric that proves it — turnaround, accuracy, hours returned.</p></div></li>
+        <li class="rv"><b>02</b><div><h4>Evaluate before you scale</h4><p>Test suites, LLM evals and synthetic data come first, so quality is measured, not assumed.</p></div></li>
+        <li class="rv"><b>03</b><div><h4>Design agents to be governed</h4><p>Clear tools, clear boundaries, ADRs and MCP / A2A patterns a regulated enterprise can approve.</p></div></li>
+        <li class="rv"><b>04</b><div><h4>Observe everything in production</h4><p>Latency, cost, drift and tool calls are tracked from day one — LangSmith, MLflow, Grafana.</p></div></li>
       </ul>
     </div>
-    <div>
+    <div style="position:sticky;top:120px">
       <div class="stamp" id="stamp">
         <p class="d">Ship it.<br>Measure it.<br>Make sure it never fails quietly.</p>
         <span class="m">— The rule I build by</span>
       </div>
-      <div class="term" id="term" aria-label="Deploy log"></div>
+      <div class="term" id="term" aria-label="Deployment log"><div class="bar"><i></i><i></i><i></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <p class="m eyebrow rv">Technical depth</p>
+    <h2 class="d" style="font-size:clamp(56px,7vw,110px)"><span class="mask"><span>The full</span></span><span class="mask"><span class="red">stack of AI.</span></span></h2>
+    <div class="matrix">
+      <div class="mrow rv"><h4><span class="m">01</span>Generative &amp; agentic AI</h4><div class="tags"><span>Multi-agent systems</span><span>MCP</span><span>A2A</span><span>LangGraph</span><span>LangChain</span><span>LlamaIndex</span><span>RAG</span><span>Hugging Face</span><span>LoRA / QLoRA</span><span>Quantisation</span></div></div>
+      <div class="mrow rv"><h4><span class="m">02</span>Knowledge &amp; retrieval</h4><div class="tags"><span>Knowledge graphs</span><span>Graph databases</span><span>GraphRAG</span><span>Vector search</span><span>Pinecone</span><span>Elastic</span></div></div>
+      <div class="mrow rv"><h4><span class="m">03</span>ML &amp; NLP</h4><div class="tags"><span>Deep learning</span><span>Transformers</span><span>BERT</span><span>NER</span><span>Clustering</span><span>Predictive modelling</span><span>Time-series forecasting</span><span>Statistical analysis</span></div></div>
+      <div class="mrow rv"><h4><span class="m">04</span>LLMOps &amp; MLOps</h4><div class="tags"><span>LangSmith</span><span>MLflow</span><span>Kubeflow</span><span>Airflow</span><span>Evidently</span><span>Grafana</span><span>Docker</span><span>Kubernetes</span><span>CI/CD</span></div></div>
+      <div class="mrow rv"><h4><span class="m">05</span>Languages &amp; frameworks</h4><div class="tags"><span>Python</span><span>Java</span><span>SQL</span><span>PyTorch</span><span>TensorFlow</span><span>Keras</span><span>scikit-learn</span><span>spaCy</span></div></div>
+      <div class="mrow rv"><h4><span class="m">06</span>Data &amp; cloud</h4><div class="tags"><span>PySpark</span><span>Kafka</span><span>Hive</span><span>PostgreSQL</span><span>Google Cloud</span><span>AWS</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="lab">
+  <div class="wrap">
+    <p class="m eyebrow rv">Open-source lab</p>
+    <h2 class="d" style="font-size:clamp(48px,6vw,92px)"><span class="mask"><span>Built in</span></span><span class="mask"><span class="red">public.</span></span></h2>
+    <div class="oss">
+      <a href="https://github.com/PriyeshDave/BlogMind" class="rv hov"><span class="m k">Autonomous research &amp; publishing agent</span><h4>BlogMind</h4><p>Ranks arXiv, Hacker News and GitHub signals with an LLM judge, then researches, drafts, critiques and publishes behind a PR approval gate. 24 posts live.</p><div class="tags"><span>LLM-as-judge</span><span>Human-in-the-loop</span></div></a>
+      <a href="https://github.com/PriyeshDave/SkillFlow" class="rv hov"><span class="m k">AI curriculum engine</span><h4>SkillFlow</h4><p>Turns structured learning roadmaps into continuous, human-reviewed technical content — from generation to automated publishing.</p><div class="tags"><span>AI agents</span><span>Automation</span></div></a>
+      <a href="https://github.com/PriyeshDave" class="rv hov"><span class="m k">MCP workday planner</span><h4>FocusPilot</h4><p>Uses Model Context Protocol to gather context from enterprise tools and generate prioritised work plans.</p><div class="tags"><span>MCP</span><span>AI agents</span></div></a>
     </div>
   </div>
 </section>
 
 <section id="experience">
   <div class="wrap">
-    <p class="m red rv">Experience</p>
+    <p class="m eyebrow rv">Experience</p>
     <h2 class="d" style="font-size:clamp(56px,7vw,110px)"><span class="mask"><span>The path so</span></span><span class="mask"><span class="red">far.</span></span></h2>
     <div class="tl" id="tl"><div class="fill" id="tlfill"></div>
-      <div class="job rv"><span class="m when">Jun 2025 — Now</span><h3 class="d">Senior Engineer II — AI/ML</h3><p class="at">American Express</p><p>Agentic AI strategy and architecture, owner of production GenAI systems, mentor to data scientists and engineers.</p></div>
-      <div class="job rv"><span class="m when">Nov 2022 — Jun 2025</span><h3 class="d">Data Scientist</h3><p class="at">American Express</p><p>Incident categorisation, synthetic data generation, and a survey-analytics framework (Tony Award).</p></div>
-      <div class="job rv" style="padding-bottom:0"><span class="m when">2018 — 2022</span><h3 class="d">Data Scientist</h3><p class="at">Tata Consultancy Services · Westpac account</p><p>Four years of data science for one of Australia's largest banks — where the move from research to production started.</p></div>
+      <div class="job rv"><span class="m when">Jun 2025 — Present</span><h3 class="d">Senior AI Engineer I</h3><p class="at">American Express · Bengaluru</p>
+        <ul><li>Defined the Digital Workplace Data &amp; Agentic AI strategy; scaled agent adoption on ChatGPT and Microsoft Copilot.</li><li>Established MCP / A2A patterns, simplified the Amex Agentic Brain and authored ADRs for production agentic workflows.</li><li>Own the Autonomous Incident Intelligence Platform across 100+ products — ~98% grouping accuracy, 87% faster turnaround.</li><li>Engineered the Semantic Data Intelligence Framework: survey analytics automation from ~30% to 95%.</li><li>Lead Enterprise Functional Test Suites — LLM-generated end-to-end tests with knowledge-graph dependency resolution.</li></ul></div>
+      <div class="job rv"><span class="m when">Nov 2022 — Jun 2025</span><h3 class="d">Data Scientist</h3><p class="at">American Express · Bengaluru</p>
+        <ul><li>Built the first ML-based ServiceNow incident categorisation system — 8 days of manual work saved per 10k incidents.</li><li>Architected reusable ConfigML frameworks for training, monitoring, explainability and governance, adopted across teams.</li><li>Designed the enterprise Knowledge Management Service with Generative BI for natural-language analytics.</li></ul></div>
+      <div class="job rv" style="padding-bottom:0"><span class="m when">2018 — 2022</span><h3 class="d">Data Scientist</h3><p class="at">Tata Consultancy Services · Westpac account</p>
+        <ul><li>Four years of applied ML and NLP for one of Australia's largest banks — where the move from research to production started.</li></ul></div>
     </div>
   </div>
 </section>
 
 <section id="writing">
   <div class="wrap">
-    <div class="series rv">
-      <div class="ghost105" aria-hidden="true">105</div>
-      <div style="position:relative">
-        <p class="m red">@beyondtheprompts.ai</p>
-        <h2 class="d" style="font-size:clamp(56px,7vw,110px)">Zero to<br><span class="red">Agentic.</span></h2>
-      </div>
-      <div style="position:relative">
-        <p style="color:#C9C4BC;font-size:17px;line-height:1.65;margin:0">A 105-day, in-public series from AI basics to building agents. A dev.to post every day, with a matching Instagram Reel.</p>
+    <p class="m eyebrow rv">Writing &amp; teaching</p>
+    <h2 class="d" style="font-size:clamp(56px,7vw,110px)"><span class="mask"><span>Ideas in</span></span><span class="mask"><span class="red">public.</span></span></h2>
+    <div class="wgrid">
+      <div class="series rv">
+        <div class="ghost105" aria-hidden="true">105</div>
+        <p class="m red" style="position:relative;margin:0 0 12px">@beyondtheprompts.ai</p>
+        <h3 class="d" style="font-size:clamp(44px,4.5vw,68px);position:relative">Zero to<br><span class="red">Agentic.</span></h3>
+        <p style="color:#C9C4BC;font-size:16px;line-height:1.6;margin:18px 0 0;position:relative">A 105-day series from AI fundamentals to production agents — a dev.to post and an Instagram Reel every day.</p>
         <div class="days" id="days" aria-hidden="true"></div>
-        <div class="ctas"><a href="https://dev.to/priyeshdave6" class="btn solid hov">Read on dev.to</a><a href="https://instagram.com/beyondtheprompts.ai" class="btn ghost hov">Watch the Reels</a></div>
+        <div class="ctas" style="position:relative"><a href="https://dev.to/priyeshdave6" class="btn solid hov">Read on dev.to</a><a href="https://instagram.com/beyondtheprompts.ai" class="btn ghost hov">Watch the Reels</a></div>
       </div>
-    </div>
-    <div style="margin-top:96px">
-      <p class="m red rv">Field notes</p>
-      <h3 class="d" style="font-size:clamp(48px,6vw,92px)"><span class="mask"><span>Writing from</span></span><span class="mask"><span class="red">the work.</span></span></h3>
       <div class="notes">
-        <a href="https://medium.com/@priyeshdave90" class="note rv hov"><span class="m">Medium · 8 min</span><h4>Engineering Enterprise-Grade Synthetic Data Generation</h4><p>Beyond privacy, toward data generation reliable enough for production systems.</p><b>→</b></a>
-        <a href="https://medium.com/@priyeshdave90" class="note rv hov"><span class="m">Medium · 7 min</span><h4>From Problem to Solution: How AI Can Redefine Knowledge Management</h4><p>Turning organisational knowledge into an intelligent capability.</p><b>→</b></a>
-        <a href="https://medium.com/@priyeshdave90" class="note rv hov"><span class="m">Medium · 6 min</span><h4>The New Era of API Testing</h4><p>How semantic, autonomous, LLM-driven testing changes the quality loop.</p><b>→</b></a>
+        <a href="https://medium.com/@priyeshdave90" class="note rv hov"><span class="m">Medium · Essay</span><h4>Engineering Enterprise-Grade Synthetic Data Generation</h4><b>→</b></a>
+        <a href="https://medium.com/@priyeshdave90" class="note rv hov"><span class="m">Medium · Essay</span><h4>From Problem to Solution: How AI Can Redefine Knowledge Management</h4><b>→</b></a>
+        <a href="https://medium.com/@priyeshdave90" class="note rv hov"><span class="m">Medium · Essay</span><h4>The New Era of API Testing — semantic, autonomous, LLM-driven</h4><b>→</b></a>
+        <a href="https://medium.com/@priyeshdave90" class="note rv hov"><span class="m">Medium · Field notes</span><h4>What survives after the demo?</h4><b>→</b></a>
       </div>
     </div>
-    <div class="rec" style="margin-top:56px">
-      <div class="rv"><p class="m k">Award</p><p class="v">Inventor Award — 3 patents</p></div>
-      <div class="rv"><p class="m k">Certified</p><p class="v">GCP Professional ML Engineer</p></div>
-      <div class="rv"><p class="m k">Certified</p><p class="v">TensorFlow Developer</p></div>
-      <div class="rv"><p class="m k">Certified</p><p class="v">Claude Solutions Architect</p></div>
+    <div class="rec">
+      <div class="rv"><p class="m k">Patents</p><p class="v">3× Patent Inventor</p><p class="s">American Express Inventor Award</p></div>
+      <div class="rv"><p class="m k">Certified</p><p class="v">Claude Certified Professional Solutions Architect</p></div>
+      <div class="rv"><p class="m k">Certified</p><p class="v">Google Cloud Professional ML Engineer</p></div>
+      <div class="rv"><p class="m k">Certified</p><p class="v">TensorFlow Certified Developer</p></div>
     </div>
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap" style="position:relative">
-    <p class="m red rv">Contact</p>
+    <p class="m eyebrow rv">Contact</p>
     <h2 class="d together"><span class="mask"><span>Let's build</span></span><span class="mask"><span class="red">together.</span></span></h2>
     <div class="d forreal" id="forreal">Ship it for real.</div>
+    <p class="rv" style="color:#C9C4BC;font-size:18px;line-height:1.6;max-width:560px;margin:32px 0 0">Open to conversations about enterprise AI, agentic platforms, speaking and collaboration.</p>
     <div class="contacts">
-      <a href="mailto:priyeshdave21.ai@gmail.com" class="rv hov"><span class="m">Email</span>priyeshdave21.ai@gmail.com</a>
-      <a href="https://linkedin.com/in/priyeshdave21" class="rv hov"><span class="m">LinkedIn</span>/in/priyeshdave21</a>
+      <a href="mailto:priyeshdave6@gmail.com" class="rv hov"><span class="m">Email</span>priyeshdave6@gmail.com</a>
+      <a href="https://www.linkedin.com/in/priyeshdave21/" class="rv hov"><span class="m">LinkedIn</span>/in/priyeshdave21</a>
       <a href="https://github.com/PriyeshDave" class="rv hov"><span class="m">GitHub</span>PriyeshDave</a>
       <a href="https://medium.com/@priyeshdave90" class="rv hov"><span class="m">Medium</span>@priyeshdave90</a>
       <a href="https://dev.to/priyeshdave6" class="rv hov"><span class="m">Dev.to</span>@priyeshdave6</a>
       <a href="https://x.com/priyeshdave6" class="rv hov"><span class="m">X</span>@priyeshdave6</a>
       <a href="https://instagram.com/beyondtheprompts.ai" class="rv hov"><span class="m">Instagram</span>@beyondtheprompts.ai</a>
     </div>
-    <footer class="m"><span>© 2026 Priyesh Dave · Bangalore</span><span>Beyond the prompts.</span></footer>
+    <footer class="m"><span>© 2026 Priyesh Dave · Bengaluru</span><span>Beyond the prompts.</span></footer>
   </div>
 </section>
 </main>
@@ -386,52 +507,48 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
 (function(){
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const loader = document.getElementById('loader');
-  // split big word into letters
   const bw = document.getElementById('bigword');
   bw.innerHTML = bw.textContent.split('').map(c=>'<span class="ch" aria-hidden="true">'+c+'</span>').join('');
-
-  // 105-day grid
   const days = document.getElementById('days');
-  for(let i=0;i<105;i++){const d=document.createElement('i');days.appendChild(d)}
+  for(let i=0;i<105;i++){days.appendChild(document.createElement('i'))}
 
-  // header
-  const hdr=document.getElementById('hdr');
-  addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40),{passive:true});
+  const hdr=document.getElementById('hdr'), prog=document.getElementById('prog');
+  addEventListener('scroll',()=>{hdr.classList.toggle('scrolled',scrollY>40);
+    const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?scrollY/h*100:0)+'%'},{passive:true});
 
-  // cursor
   const cur=document.getElementById('cur');
   if(matchMedia('(hover:hover)').matches){
     let x=0,y=0,cx=0,cy=0;
     addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY;cur.style.opacity=1});
     (function loop(){cx+=(x-cx)*.18;cy+=(y-cy)*.18;cur.style.transform='translate('+cx+'px,'+cy+'px) translate(-50%,-50%)';requestAnimationFrame(loop)})();
-    cur.style.left='0';cur.style.top='0';
     document.querySelectorAll('.hov,a').forEach(el=>{el.addEventListener('mouseenter',()=>cur.classList.add('big'));el.addEventListener('mouseleave',()=>cur.classList.remove('big'))});
   }
 
-  // terminal typing
   const lines=[
-    ['$ ','agent deploy --env prod'],
-    ['','<span class="ok">✓</span> evals passed  (regression suite)'],
-    ['','<span class="ok">✓</span> guardrails attached'],
-    ['','<span class="ok">✓</span> monitoring + alerts live'],
-    ['','<span class="r">→</span> shipped. not just merged.']
+    '<span class="g">$</span> agents deploy incident-intelligence --env prod',
+    '<span class="ok">✓</span> eval suite passed <span class="g">· grouping acc 0.98</span>',
+    '<span class="ok">✓</span> ADR approved <span class="g">· risk &amp; governance</span>',
+    '<span class="ok">✓</span> MCP tools registered <span class="g">· 4 agents online</span>',
+    '<span class="ok">✓</span> tracing on <span class="g">· latency · cost · drift</span>',
+    '<span class="r">→</span> shipped. not just merged.'
   ];
   let termDone=false;
   function runTerm(){
     if(termDone)return;termDone=true;
     const t=document.getElementById('term');let i=0;
     (function next(){
-      if(i>=lines.length){t.innerHTML+='<span class="caret"></span>';return}
-      const div=document.createElement('div');div.innerHTML=lines[i][0]+lines[i][1];div.style.opacity=0;t.appendChild(div);
+      if(i>=lines.length){t.insertAdjacentHTML('beforeend','<span class="caret"></span>');return}
+      const div=document.createElement('div');div.innerHTML=lines[i];div.style.opacity=0;t.appendChild(div);
       requestAnimationFrame(()=>{div.style.transition='opacity .3s';div.style.opacity=1});
-      i++;setTimeout(next,i===1?700:450);
+      i++;setTimeout(next,i===1?800:450);
     })();
   }
+  function fmt(n,v){return (n.dataset.pre||'')+v+(n.dataset.suf||'')}
 
   if(reduce || typeof gsap==='undefined'){
     loader.style.display='none';
     document.querySelectorAll('.rv').forEach(e=>{e.style.opacity=1;e.style.transform='none'});
-    document.querySelectorAll('.n[data-to]').forEach(n=>n.textContent=n.dataset.to+(n.dataset.suf||''));
+    document.querySelectorAll('.n[data-to]').forEach(n=>n.textContent=fmt(n,n.dataset.to));
     days.querySelectorAll('i').forEach(d=>d.classList.add('on'));
     runTerm();return;
   }
@@ -441,17 +558,15 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
   gsap.set('#bigword .ch',{yPercent:110});
   gsap.set('#hero .mask>span',{yPercent:110});
 
-  // loader count
   const pct={v:0};
-  const intro=gsap.timeline();
-  intro.to(pct,{v:100,duration:1.4,ease:'power2.inOut',onUpdate:()=>document.getElementById('pct').textContent=Math.round(pct.v)})
+  gsap.timeline()
+    .to(pct,{v:100,duration:1.3,ease:'power2.inOut',onUpdate:()=>document.getElementById('pct').textContent=Math.round(pct.v)})
     .to(loader,{yPercent:-100,duration:.8,ease:'expo.inOut'})
     .to('#bigword .ch',{yPercent:0,duration:1,ease:'expo.out',stagger:.05},'-=.35')
     .to('#hero .mask>span',{yPercent:0,duration:.9,ease:'expo.out',stagger:.08},'-=.7')
     .to('.hfade',{opacity:1,y:0,duration:.8,ease:'power3.out',stagger:.1},'-=.6')
     .set(loader,{display:'none'});
 
-  // hero parallax
   gsap.to('#bigword',{xPercent:-12,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
   gsap.to('#photo',{y:80,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
   if(matchMedia('(hover:hover)').matches){
@@ -459,50 +574,36 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
       gsap.to('#photo .glow',{x:dx*60,y:dy*60,duration:1});gsap.to('#bigword .ch',{x:i=>dx*(i-4)*3,duration:1})});
   }
 
-  // mask reveals outside hero
-  document.querySelectorAll('section:not(#hero) h2 .mask, section:not(#hero) h3 .mask').forEach(m=>{
+  document.querySelectorAll('section:not(#hero) .mask').forEach(m=>{
     gsap.from(m.firstElementChild,{yPercent:110,duration:1,ease:'expo.out',scrollTrigger:{trigger:m,start:'top 88%'}});
   });
-  // generic reveals
   gsap.utils.toArray('.rv').forEach(el=>{
     gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%'}});
   });
 
-  // horizontal project scroll (desktop)
-  ScrollTrigger.matchMedia({
-    '(min-width: 861px)':function(){
-      const track=document.getElementById('hscroll');
-      const dist=()=>track.scrollWidth-innerWidth+64;
-      gsap.to(track,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'#hwrap',start:'top 12%',end:()=>'+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true}});
-      gsap.from('.card',{y:120,rotate:3,opacity:0,stagger:.12,duration:1,ease:'expo.out',scrollTrigger:{trigger:'#hwrap',start:'top 80%'}});
-    },
-    '(max-width: 860px)':function(){
-      gsap.utils.toArray('.card').forEach(c=>gsap.from(c,{y:60,opacity:0,duration:.8,scrollTrigger:{trigger:c,start:'top 90%'}}));
-    }
+  // stacking case studies
+  const cases=gsap.utils.toArray('.case');
+  cases.forEach((c,i)=>{
+    gsap.from(c.querySelectorAll('.layer, .wire, .kpis'),{opacity:0,x:40,stagger:.08,duration:.7,ease:'power3.out',scrollTrigger:{trigger:c,start:'top 70%'}});
+    gsap.from(c.querySelectorAll('li'),{opacity:0,y:16,stagger:.07,duration:.6,scrollTrigger:{trigger:c,start:'top 65%'}});
   });
-
-  // counters
-  document.querySelectorAll('.n[data-to]').forEach(n=>{
-    const o={v:0};
-    gsap.to(o,{v:+n.dataset.to,duration:2,ease:'power3.out',scrollTrigger:{trigger:n,start:'top 85%'},
-      onUpdate:()=>n.textContent=Math.round(o.v)+(o.v>=+n.dataset.to?(n.dataset.suf||''):'')});
-  });
-
-  // stamp + terminal
-  gsap.from('#stamp',{scale:1.6,rotate:12,opacity:0,duration:.7,ease:'back.out(2)',scrollTrigger:{trigger:'#stamp',start:'top 80%'}});
-  ScrollTrigger.create({trigger:'#term',start:'top 85%',onEnter:runTerm});
-
-  // timeline line
-  gsap.to('#tlfill',{height:'calc(100% - 16px)',ease:'none',scrollTrigger:{trigger:'#tl',start:'top 70%',end:'bottom 60%',scrub:true}});
-
-  // 105 grid fill
-  ScrollTrigger.create({trigger:'#days',start:'top 85%',once:true,onEnter:()=>{
-    days.querySelectorAll('i').forEach((d,i)=>setTimeout(()=>d.classList.add('on'),i*14));
+  ScrollTrigger.matchMedia({'(min-width: 961px)':function(){
+    cases.forEach((c,i)=>{ if(i===cases.length-1) return;
+      gsap.to(c,{scale:.94,opacity:.45,ease:'none',scrollTrigger:{trigger:cases[i+1],start:'top bottom',end:'top 20%',scrub:true}});
+    });
   }});
 
-  // contact stamp
-  gsap.from('#forreal',{scale:2.2,rotate:-20,opacity:0,duration:.6,ease:'back.out(2.2)',scrollTrigger:{trigger:'#contact',start:'top 60%'}});
+  document.querySelectorAll('.n[data-to]').forEach(n=>{
+    const o={v:0},to=+n.dataset.to;
+    gsap.to(o,{v:to,duration:2,ease:'power3.out',scrollTrigger:{trigger:n,start:'top 85%'},onUpdate:()=>n.textContent=fmt(n,Math.round(o.v))});
+  });
 
+  gsap.from('#stamp',{scale:1.6,rotate:12,opacity:0,duration:.7,ease:'back.out(2)',scrollTrigger:{trigger:'#stamp',start:'top 80%'}});
+  ScrollTrigger.create({trigger:'#term',start:'top 85%',onEnter:runTerm});
+  gsap.from('.mrow .tags span',{opacity:0,y:10,stagger:.01,duration:.4,scrollTrigger:{trigger:'.matrix',start:'top 75%'}});
+  gsap.to('#tlfill',{height:'calc(100% - 16px)',ease:'none',scrollTrigger:{trigger:'#tl',start:'top 70%',end:'bottom 60%',scrub:true}});
+  ScrollTrigger.create({trigger:'#days',start:'top 85%',once:true,onEnter:()=>{days.querySelectorAll('i').forEach((d,i)=>setTimeout(()=>d.classList.add('on'),i*14))}});
+  gsap.from('#forreal',{scale:2.2,rotate:-20,opacity:0,duration:.6,ease:'back.out(2.2)',scrollTrigger:{trigger:'#contact',start:'top 60%'}});
   addEventListener('load',()=>ScrollTrigger.refresh());
 })();
 </script>
