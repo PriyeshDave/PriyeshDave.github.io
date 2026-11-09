@@ -216,6 +216,27 @@ header.scrolled{background:rgba(10,10,10,.78);backdrop-filter:blur(12px);border-
 .note b{font-size:24px;color:var(--red);grid-column:2;grid-row:1/3;transition:transform .3s}
 .note:hover{background:#151413}.note:hover b{transform:translateX(6px)}
 
+/* speaking & book */
+.golinks{display:flex;flex-wrap:wrap;gap:4px 24px}
+.demo-note{color:var(--dim);margin:2px 0 0}
+.stage{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;margin-top:56px}
+@media (max-width:900px){.stage{grid-template-columns:1fr}}
+.talk{border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,59,47,.08),transparent 55%),var(--card);padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;gap:18px}
+.talk-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;color:var(--mute)}
+.talk .live{display:flex;align-items:center;gap:8px;color:var(--red)}
+.talk .live i{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);animation:blink 1.6s steps(1) infinite}
+.talk h3{font-size:clamp(36px,4vw,60px)}
+.talk p{color:#C9C4BC;font-size:16px;line-height:1.6;margin:0;max-width:640px}
+.talk .go{color:var(--red);font-weight:600;font-size:14px;text-decoration:none;padding:8px 0}
+.book{border:1px solid var(--line);background:var(--card);padding:32px;display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:center;position:relative}
+@media (max-width:520px){.book{grid-template-columns:1fr}.cover{max-width:150px}.book .soon{top:20px}}
+.book .soon{position:absolute;top:16px;right:16px;background:var(--red);color:#0A0A0A;padding:6px 10px;transform:rotate(3deg)}
+.cover{aspect-ratio:2/3;background:linear-gradient(160deg,#1d1b1a,#0b0b0b);border:1px solid #3a3835;box-shadow:12px 14px 0 rgba(255,59,47,.18);padding:14px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(-3deg);transition:transform .4s}
+.book:hover .cover{transform:rotate(0) translateY(-4px)}
+.cover .m{font-size:9px;color:var(--dim)}
+.cover b{font-size:22px;line-height:.95;font-weight:400}
+.book h4{font-size:22px;font-weight:600;margin:0 0 8px;line-height:1.25}
+.book p{color:#B5B0A8;font-size:15px;line-height:1.55;margin:0}
 /* recognition */
 .rec{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
 @media (max-width:960px){.rec{grid-template-columns:1fr 1fr!important}}@media (max-width:520px){.rec{grid-template-columns:1fr!important}}
@@ -392,15 +413,16 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
           <p class="m sub">Agentic enterprise intelligence workspace</p>
           <p class="sum">Brings together the fragmented information, conversations, tasks, meetings and project signals enterprise teams work with every day — and turns them into decisions and next steps.</p>
           <ul>
-            <li><strong style="color:var(--ink);font-weight:600">Catch Up</strong> turns meetings into decisions, actions, risks and follow-ups.</li>
-            <li><strong style="color:var(--ink);font-weight:600">Daily Plan</strong> merges calendar, messages, tasks and deadlines into one plan.</li>
-            <li><strong style="color:var(--ink);font-weight:600">Readiness</strong> coordinates specialised agents to investigate project risks and dependencies.</li>
+            <li><span><strong style="color:var(--ink);font-weight:600">Catch Up</strong> turns meetings into decisions, actions, risks and follow-ups.</span></li>
+            <li><span><strong style="color:var(--ink);font-weight:600">Daily Plan</strong> merges calendar, messages, tasks and deadlines into one plan.</span></li>
+            <li><span><strong style="color:var(--ink);font-weight:600">Readiness</strong> coordinates specialised agents to investigate project risks and dependencies.</span></li>
           </ul>
           <div class="tags"><span>Multi-agent orchestration</span><span>Persona-aware reasoning</span><span>MCP</span><span>Cost &amp; latency observability</span></div>
-          <a href="https://github.com/PriyeshDave/About-Orbit" class="go hov">View repository →</a>
+          <div class="golinks"><a href="http://34.59.189.48/" class="go hov" target="_blank" rel="noopener">Open live demo ↗</a><a href="https://github.com/PriyeshDave/About-Orbit" class="go hov" target="_blank" rel="noopener">View repository →</a></div>
+          <p class="m demo-note">Public demo · sample data only</p>
         </div>
         <div class="arch">
-          <div class="archlbl m"><span>Architecture</span><span class="red">● demo</span></div>
+          <div class="archlbl m"><span>Architecture</span><span class="red">● live demo</span></div>
           <div class="layer"><span class="m">Enterprise tools</span><div class="chips"><b>Meetings</b><b>Email</b><b>Messages</b><b>Projects</b></div></div>
           <div class="wire"></div>
           <div class="layer hot"><span class="m">Orbit intelligence layer</span><div class="chips"><b>Context</b><b>Personas</b><b>Agent orchestration</b><b>Observability</b></div></div>
@@ -481,7 +503,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
 
 <section id="writing">
   <div class="wrap">
-    <p class="m eyebrow rv">Writing &amp; teaching</p>
+    <p class="m eyebrow rv">Speaking, writing &amp; teaching</p>
     <h2 class="d" style="font-size:clamp(56px,7vw,110px)"><span class="mask"><span>Ideas in</span></span><span class="mask"><span class="red">public.</span></span></h2>
     <div class="wgrid">
       <div class="series rv">
@@ -498,6 +520,20 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
         <a href="https://medium.com/@priyeshdave90" class="note rv hov"><span class="m">Medium · Essay</span><h4>The New Era of API Testing — semantic, autonomous, LLM-driven</h4><b>→</b></a>
         <a href="https://medium.com/@priyeshdave90" class="note rv hov"><span class="m">Medium · Field notes</span><h4>What survives after the demo?</h4><b>→</b></a>
       </div>
+    </div>
+    <div class="stage">
+      <article class="talk rv">
+        <div class="talk-top"><span class="m live"><i></i>Conference talk</span><span class="m">Neo4j · NODES 2025 · Online</span></div>
+        <h3 class="d">Knowledge graphs <span class="red">+ LLMs</span> for end-to-end API testing</h3>
+        <p>How a knowledge graph of services, endpoints and dependencies, combined with LLMs, can generate, order and run end-to-end API tests automatically — and why structure is what makes generative testing reliable.</p>
+        <div class="tags"><span>Knowledge graphs</span><span>Neo4j</span><span>LLM test generation</span><span>Dependency resolution</span></div>
+        <a href="https://neo4j.com/nodes-2025/" class="go hov" target="_blank" rel="noopener">About NODES 2025 ↗</a>
+      </article>
+      <article class="book rv">
+        <span class="m soon">In progress</span>
+        <div class="cover" aria-hidden="true"><span class="m">Apress</span><b class="d">AI in<br>Supply Chain<br><span class="red">Management</span></b><span class="m">Priyesh Dave</span></div>
+        <div><p class="m" style="color:var(--mute);margin:0 0 8px">Book · Apress</p><h4>AI in Supply Chain Management</h4><p>Exploring how agentic systems reshape planning, sourcing and logistics. Currently being written.</p></div>
+      </article>
     </div>
     <div class="rec">
       <div class="rv"><p class="m k">Patents</p><p class="v">3× Patent Inventor</p><p class="s">American Express Inventor Award</p></div>
