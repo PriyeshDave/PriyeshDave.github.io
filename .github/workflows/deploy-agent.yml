@@ -1,0 +1,56 @@
+name: Deploy portfolio agent
+
+# Rebuilds the agent's knowledge base from the site and deploys the
+# Cloudflare Worker whenever the site content or the agent changes.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "work/**"
+      - "Priyesh-Dave-Resume.pdf"
+      - "agent/**"
+      - ".github/workflows/deploy-agent.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-agent
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build knowledge base from the site
+        run: |
+          pip install --quiet pypdf
+          python agent/build_knowledge.py
+
+      - name: Check required secrets
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          GEMINI: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -z "$CF_TOKEN" ] || [ -z "$GEMINI" ]; then
+            echo "::error::Add CLOUDFLARE_API_TOKEN and GEMINI_API_KEY in Settings → Secrets and variables → Actions."
+            exit 1
+          fi
+
+      - name: Deploy Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: agent
+          secrets: |
+            GEMINI_API_KEY
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

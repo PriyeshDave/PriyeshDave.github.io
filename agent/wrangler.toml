@@ -1,0 +1,11 @@
+name = "priyesh-portfolio-agent"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[vars]
+# Swap to "gemini-3.8-flash" for richer answers (about 3x the cost).
+GEMINI_MODEL = "gemini-3.1-flash-lite"
+ALLOWED_ORIGINS = "https://priyeshdave.github.io"
+
+# GEMINI_API_KEY is a secret, set by the GitHub Action — never commit it.
