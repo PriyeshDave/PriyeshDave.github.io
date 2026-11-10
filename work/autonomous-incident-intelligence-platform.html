@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autonomous Incident Intelligence Platform — Case study · Priyesh Dave</title>
+<meta name="description" content="From a first ML classifier to a real-time, agent-driven GenAI platform that categorises, groups, enriches and traces the root cause of incidents across 100+ Digital Workplace products.">
+<meta name="author" content="Priyesh Dave">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="canonical" href="https://priyeshdave.github.io/work/autonomous-incident-intelligence-platform.html">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.png" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Priyesh Dave">
+<meta property="og:title" content="Autonomous Incident Intelligence Platform — Case study · Priyesh Dave">
+<meta property="og:description" content="From a first ML classifier to a real-time, agent-driven GenAI platform that categorises, groups, enriches and traces the root cause of incidents across 100+ Digital Workplace products.">
+<meta property="og:url" content="https://priyeshdave.github.io/work/autonomous-incident-intelligence-platform.html">
+<meta property="og:image" content="https://priyeshdave.github.io/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@priyeshdave6">
+<meta name="twitter:image" content="https://priyeshdave.github.io/og-image.jpg">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Autonomous Incident Intelligence Platform \u2014 Smart incident data management, run by agents", "description": "From a first ML classifier to a real-time, agent-driven GenAI platform that categorises, groups, enriches and traces the root cause of incidents across 100+ Digital Workplace products.", "url": "https://priyeshdave.github.io/work/autonomous-incident-intelligence-platform.html", "image": "https://priyeshdave.github.io/og-image.jpg", "author": {"@type": "Person", "name": "Priyesh Dave", "url": "https://priyeshdave.github.io/"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="case.css">
+</head>
+<body>
+<div id="prog" aria-hidden="true"></div>
+<header><div class="nav">
+  <a href="../" class="logo">PD<span class="red">.</span></a>
+  <a href="../#work" class="back m">← All work</a>
+  <a href="../#contact" class="pill">Let's talk</a>
+</div></header>
+<main>
+<section class="hero"><div class="wrap">
+  <div class="ghost" aria-hidden="true">03</div>
+  <div class="crumb m"><span>Case study 03</span><span class="tag">American Express · Production</span></div>
+  <h1 class="d">Autonomous Incident Intelligence Platform</h1>
+  <p class="m sub">Smart incident data management, run by agents</p>
+  <p class="lede">From a first ML classifier to a real-time, agent-driven GenAI platform that categorises, groups, enriches and traces the root cause of incidents across 100+ Digital Workplace products.</p>
+  
+  
+  <div class="meta"><div><span class="m">Role</span><p>Owner — design to production</p></div><div><span class="m">Scope</span><p>100+ Digital Workplace products</p></div><div><span class="m">Source system</span><p>ServiceNow</p></div><div><span class="m">Status</span><p>In production · DW Project Award</p></div></div>
+</div></section>
+
+<section class="blk"><div class="wrap blk-grid">
+  <h2 class="d rv"><span class="n">01</span>Context</h2>
+  <div class="prose rv"><p>Every incident in ServiceNow has to be categorised, matched to related incidents and understood before anyone can fix the underlying problem. Done by hand across 100+ products, that work was slow, inconsistent and expensive — and reporting on it took days.</p><p><strong>The challenge:</strong> Make incident data management fast, accurate and largely autonomous — so engineers spend their time fixing root causes, not sorting tickets.</p></div>
+</div></section>
+
+<section class="blk"><div class="wrap blk-grid">
+  <h2 class="d rv"><span class="n">02</span>Approach</h2>
+  <ol class="steps rv"><li><div><h4>Prove value with a first ML baseline</h4><p>Built the first ML-based ServiceNow incident categorisation system — saving 8 days of manual work per 10,000 incidents.</p></div></li><li><div><h4>Evolve to transformers</h4><p>Moved categorisation onto BERT-based models for higher accuracy on noisy incident text.</p></div></li><li><div><h4>Re-platform on GenAI and agents</h4><p>Evolved the system into a real-time GenAI platform where agents handle categorisation, grouping and enrichment.</p></div></li><li><div><h4>Reason about root cause with a knowledge graph</h4><p>Added knowledge-graph root-cause analysis, so related incidents are connected through the products and dependencies they share.</p></div></li></ol>
+</div></section>
+
+<section class="blk"><div class="wrap blk-grid">
+  <h2 class="d rv"><span class="n">03</span>Architecture</h2>
+  <div class="arch rv"><div class="layer"><span class="m">Signal intake</span><div class="chips"><b>ServiceNow incidents</b><b>Real-time stream</b></div></div><div class="wire"></div><div class="layer hot"><span class="m">Agent crew</span><div class="chips"><b>Classify</b><b>Group</b><b>Enrich</b><b>Root-cause</b></div></div><div class="wire"></div><div class="layer"><span class="m">Reasoning</span><div class="chips"><b>Knowledge graph</b><b>Historical patterns</b></div></div><div class="wire"></div><div class="layer"><span class="m">Outputs</span><div class="chips"><b>Grouped incidents</b><b>RCA insights</b><b>Reports in minutes</b></div></div></div>
+</div></section>
+
+<section class="blk"><div class="wrap blk-grid">
+  <h2 class="d rv"><span class="n">04</span>Key decisions</h2>
+  <div class="decisions"><div class="dec rv"><h4>Evolve the system, don&#x27;t replace it</h4><dl><dt>Why</dt><dd>Each generation — ML, then BERT, then GenAI agents — had to beat the one before it on the same incidents.</dd><dt>Trade-off</dt><dd>Moving in stages takes longer than one big rebuild, but every step was measured against a working baseline.</dd></dl></div><div class="dec rv"><h4>Grouping accuracy as the north-star metric</h4><dl><dt>Why</dt><dd>Grouping is what turns thousands of tickets into a handful of real problems.</dd><dt>Trade-off</dt><dd>Optimising for one metric means some others wait — the right trade when it is the one that drives the outcome.</dd></dl></div><div class="dec rv"><h4>A knowledge graph for root cause</h4><dl><dt>Why</dt><dd>Incidents are related through the products and dependencies they share, which plain similarity misses.</dd><dt>Trade-off</dt><dd>The graph has to be kept current, in exchange for root-cause analysis that follows real dependencies.</dd></dl></div></div>
+</div></section>
+
+<section class="blk"><div class="wrap blk-grid">
+  <h2 class="d rv"><span class="n">05</span>Outcomes</h2>
+  <div><div class="kpis rv"><div><strong>~98%</strong><span>incident grouping accuracy, up 20 points</span></div><div><strong>−87%</strong><span>incident turnaround time</span></div><div><strong>&lt;3 min</strong><span>reporting that used to take days</span></div><div><strong>5 FTEs</strong><span>capacity released to higher-value work</span></div></div><ul class="outs rv"><li>Real-time, agent-driven incident management across 100+ Digital Workplace products.</li><li>Recognised with the American Express DW Project Award.</li></ul></div>
+</div></section>
+
+<section class="blk"><div class="wrap blk-grid">
+  <h2 class="d rv"><span class="n">06</span>Stack</h2>
+  <div class="tags rv"><span>Multi-agent</span><span>GenAI</span><span>BERT</span><span>Knowledge graphs</span><span>ServiceNow</span><span>Python</span><span>MLOps</span></div>
+</div></section>
+
+<div class="wrap">
+  <nav class="pager" aria-label="Case studies"><a href="enterprise-knowledge-intelligence-fabric.html"><span class="m">← Previous · 02</span><b>Enterprise Knowledge Intelligence Fabric</b></a><a href="orbit.html"><span class="m">Next · 04 →</span><b>Orbit</b></a></nav>
+  <footer class="m"><span>© 2026 Priyesh Dave · Bengaluru</span><a href="../" style="text-decoration:none">priyeshdave.github.io</a></footer>
+</div>
+</main>
+<script>
+(function(){var p=document.getElementById('prog');addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-innerHeight;p.style.width=(h>0?scrollY/h*100:0)+'%'},{passive:true});
+var els=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)){els.forEach(function(x){x.classList.add('in')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(x){io.observe(x)});
+var GC='priyeshdave6';if(location.hostname==='priyeshdave.github.io'){var s=document.createElement('script');s.async=true;s.src='https://gc.zgo.at/count.js';s.setAttribute('data-goatcounter','https://'+GC+'.goatcounter.com/count');document.body.appendChild(s)}})();
+</script>
+</body>
+</html>
