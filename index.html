@@ -216,6 +216,23 @@ header.scrolled{background:rgba(10,10,10,.78);backdrop-filter:blur(12px);border-
 .note b{font-size:24px;color:var(--red);grid-column:2;grid-row:1/3;transition:transform .3s}
 .note:hover{background:#151413}.note:hover b{transform:translateX(6px)}
 
+/* dev.to feed */
+.daycount{color:var(--mute);margin:12px 0 0}
+.feed{margin-top:56px}
+.feed-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.feed-all{color:var(--mute);text-decoration:none;padding:10px 0}.feed-all:hover{color:var(--red)}
+.feed-list{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:1000px){.feed-list{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.feed-list{grid-template-columns:1fr}}
+.post{background:var(--bg);padding:24px;text-decoration:none;display:flex;flex-direction:column;gap:12px;position:relative;min-height:200px;transition:background .3s;animation:postin .7s cubic-bezier(.2,.7,.2,1) both}
+.post:nth-child(2){animation-delay:.08s}.post:nth-child(3){animation-delay:.16s}.post:nth-child(4){animation-delay:.24s}
+@keyframes postin{from{opacity:0;transform:translateY(18px)}}
+.post:hover{background:#151413}
+.post .kind{font-size:11px}.post .z2a{color:var(--red)}.post .fn{color:var(--green)}
+.post h4{margin:0;font-size:17px;font-weight:600;line-height:1.35}
+.post .meta{color:var(--dim);font-size:11px;margin-top:auto}
+.post b{position:absolute;right:20px;bottom:20px;color:var(--red);transition:transform .3s}
+.post:hover b{transform:translate(3px,-3px)}
 /* speaking & book */
 .golinks{display:flex;flex-wrap:wrap;gap:4px 24px}
 .demo-note{color:var(--dim);margin:2px 0 0}
@@ -515,6 +532,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
         <h3 class="d" style="font-size:clamp(44px,4.5vw,68px);position:relative">Zero to<br><span class="red">Agentic.</span></h3>
         <p style="color:#C9C4BC;font-size:16px;line-height:1.6;margin:18px 0 0;position:relative">A 105-day series from AI fundamentals to production agents — a dev.to post and an Instagram Reel every day.</p>
         <div class="days" id="days" aria-hidden="true"></div>
+        <p class="m daycount" id="daycount" style="position:relative" hidden><span class="red" id="dayn">105</span> / 105 days</p>
         <div class="ctas" style="position:relative"><a href="https://dev.to/priyeshdave6" class="btn solid hov">Read on dev.to</a><a href="https://instagram.com/beyondtheprompts.ai" class="btn ghost hov">Watch the Reels</a></div>
       </div>
       <div class="notes">
@@ -523,6 +541,10 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
         <a href="https://medium.com/@priyeshdave90" class="note rv hov"><span class="m">Medium · Essay</span><h4>The New Era of API Testing — semantic, autonomous, LLM-driven</h4><b>→</b></a>
         <a href="https://medium.com/@priyeshdave90" class="note rv hov"><span class="m">Medium · Field notes</span><h4>What survives after the demo?</h4><b>→</b></a>
       </div>
+    </div>
+    <div class="feed" id="feed" hidden>
+      <div class="feed-head"><p class="m eyebrow" style="margin:0">Latest from dev.to</p><a href="https://dev.to/priyeshdave6" class="m feed-all" target="_blank" rel="noopener">All posts ↗</a></div>
+      <div class="feed-list" id="feedlist"></div>
     </div>
     <div class="stage">
       <article class="talk rv">
@@ -575,6 +597,27 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
   var s=document.createElement('script');s.async=true;s.src='https://gc.zgo.at/count.js';
   s.setAttribute('data-goatcounter','https://'+GC_CODE+'.goatcounter.com/count');document.body.appendChild(s);})();
 </script>
+<script>
+(function(){
+  var list=document.getElementById('feedlist'),box=document.getElementById('feed');
+  function el(t,c,txt){var e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e}
+  fetch('https://dev.to/api/articles?username=priyeshdave6&per_page=30').then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(a){
+    if(!Array.isArray(a)||!a.length)return;
+    var maxDay=0;a.forEach(function(p){var m=/^Day\s+(\d+)/i.exec(p.title||'');if(m)maxDay=Math.max(maxDay,+m[1])});
+    if(maxDay){maxDay=Math.min(maxDay,105);window.__dayN=maxDay;var dn=document.getElementById('dayn');if(dn)dn.textContent=maxDay;var dc=document.getElementById('daycount');if(dc)dc.hidden=false;if(window.__lightDays)window.__lightDays(maxDay)}
+    a.slice(0,4).forEach(function(p){
+      var m=/^Day\s+(\d+)/i.exec(p.title||'');
+      var link=el('a','post hov');link.href=p.url;link.target='_blank';link.rel='noopener';
+      link.appendChild(el('span','m kind '+(m?'z2a':'fn'),m?('Zero to Agentic · Day '+m[1]):'Agentic AI · Field notes'));
+      link.appendChild(el('h4',null,m?(p.title.replace(/^Day\s+\d+:\s*/i,'')):p.title));
+      link.appendChild(el('span','m meta',(p.readable_publish_date||'')+' · '+(p.reading_time_minutes||1)+' min read'));
+      link.appendChild(el('b',null,'↗'));
+      list.appendChild(link);
+    });
+    box.hidden=false;
+  }).catch(function(){});
+})();
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
@@ -623,7 +666,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
     loader.style.display='none';
     document.querySelectorAll('.rv').forEach(e=>{e.style.opacity=1;e.style.transform='none'});
     document.querySelectorAll('.n[data-to]').forEach(n=>n.textContent=fmt(n,n.dataset.to));
-    days.querySelectorAll('i').forEach(d=>d.classList.add('on'));
+    window.__lightDays=function(n){days.querySelectorAll('i').forEach((d,i)=>d.classList.toggle('on',i<n))};__lightDays(window.__dayN||0);
     runTerm();return;
   }
 
@@ -679,7 +722,8 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
   ScrollTrigger.create({trigger:'#term',start:'top 85%',onEnter:runTerm});
   gsap.from('.mrow .tags span',{opacity:0,y:10,stagger:.01,duration:.4,scrollTrigger:{trigger:'.matrix',start:'top 75%'}});
   gsap.to('#tlfill',{height:'calc(100% - 16px)',ease:'none',scrollTrigger:{trigger:'#tl',start:'top 70%',end:'bottom 60%',scrub:true}});
-  ScrollTrigger.create({trigger:'#days',start:'top 85%',once:true,onEnter:()=>{days.querySelectorAll('i').forEach((d,i)=>setTimeout(()=>d.classList.add('on'),i*14))}});
+  let daysShown=false;window.__lightDays=function(n){if(!daysShown)return;days.querySelectorAll('i').forEach((d,i)=>setTimeout(()=>d.classList.toggle('on',i<n),i*14))};
+  ScrollTrigger.create({trigger:'#days',start:'top 85%',once:true,onEnter:()=>{daysShown=true;__lightDays(window.__dayN||0)}});
   gsap.from('#forreal',{scale:2.2,rotate:-20,opacity:0,duration:.6,ease:'back.out(2.2)',scrollTrigger:{trigger:'#contact',start:'top 60%'}});
   addEventListener('load',()=>ScrollTrigger.refresh());
 })();
