@@ -1,5 +1,5 @@
 // "Ask my portfolio" — a grounded Q&A agent for priyeshdave.github.io.
-// Runs on Cloudflare Workers; the Gemini API key never leaves this Worker.
+// Runs on Cloudflare Workers; the OpenAI API key never leaves this Worker.
 import { KNOWLEDGE } from "./knowledge.js";
 
 const MAX_QUESTION = 500;      // characters per visitor message
@@ -75,36 +75,45 @@ function sanitizeHistory(history) {
   return history
     .filter((m) => m && (m.role === "user" || m.role === "assistant") && typeof m.text === "string")
     .slice(-MAX_TURNS)
-    .map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: m.text.slice(0, 1500) }] }));
+    .map((m) => ({ role: m.role, content: m.text.slice(0, 1500) }));
 }
 
-async function askGemini(env, sources, history, question) {
-  const model = env.GEMINI_MODEL || "gemini-3.1-flash-lite";
+async function askOpenAI(env, sources, history, question) {
+  const model = env.OPENAI_MODEL || "gpt-4.1-mini";
   const body = {
-    systemInstruction: { parts: [{ text: `${SYSTEM}\n\nCONTEXT:\n\n${contextBlock(sources)}` }] },
-    contents: [...history, { role: "user", parts: [{ text: question }] }],
-    generationConfig: {
-      temperature: 0.3,
-      maxOutputTokens: 700,
-      responseMimeType: "application/json",
-      responseSchema: {
-        type: "OBJECT",
-        properties: { answer: { type: "STRING" }, source_ids: { type: "ARRAY", items: { type: "STRING" } } },
-        required: ["answer", "source_ids"],
+    model,
+    temperature: 0.3,
+    max_tokens: 700,
+    messages: [
+      { role: "system", content: `${SYSTEM}\n\nCONTEXT:\n\n${contextBlock(sources)}` },
+      ...history,
+      { role: "user", content: question },
+    ],
+    response_format: {
+      type: "json_schema",
+      json_schema: {
+        name: "portfolio_answer",
+        strict: true,
+        schema: {
+          type: "object",
+          properties: { answer: { type: "string" }, source_ids: { type: "array", items: { type: "string" } } },
+          required: ["answer", "source_ids"],
+          additionalProperties: false,
+        },
       },
     },
   };
-  const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
+  const r = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
-    headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${env.OPENAI_API_KEY}` },
     body: JSON.stringify(body),
   });
   if (!r.ok) {
     const detail = await r.text().catch(() => "");
-    throw new Error(`Gemini ${r.status}: ${detail.slice(0, 300)}`);
+    throw new Error(`OpenAI ${r.status}: ${detail.slice(0, 300)}`);
   }
   const data = await r.json();
-  const text = (data.candidates?.[0]?.content?.parts || []).map((p) => p.text || "").join("").trim();
+  const text = (data.choices?.[0]?.message?.content || "").trim();
   try {
     const parsed = JSON.parse(text);
     return { answer: String(parsed.answer || "").trim(), ids: Array.isArray(parsed.source_ids) ? parsed.source_ids : [] };
@@ -121,7 +130,7 @@ export default {
 
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
     if (request.method === "GET" && url.pathname === "/health") {
-      return json({ ok: true, model: env.GEMINI_MODEL || "gemini-3.1-flash-lite", sources: KNOWLEDGE.length }, 200, cors);
+      return json({ ok: true, model: env.OPENAI_MODEL || "gpt-4.1-mini", sources: KNOWLEDGE.length }, 200, cors);
     }
     if (request.method !== "POST" || url.pathname !== "/ask") return json({ error: "Not found" }, 404, cors);
 
@@ -129,7 +138,7 @@ export default {
     if (origin && !allowed.includes(origin) && !/^http:\/\/localhost(:\d+)?$/.test(origin)) {
       return json({ error: "Origin not allowed" }, 403, cors);
     }
-    if (!env.GEMINI_API_KEY) return json({ error: "Agent is not configured yet." }, 503, cors);
+    if (!env.OPENAI_API_KEY) return json({ error: "Agent is not configured yet." }, 503, cors);
 
     const ip = request.headers.get("CF-Connecting-IP") || "anon";
     if (rateLimited(ip)) return json({ error: "You're asking quickly — give it a minute and try again." }, 429, cors);
@@ -149,7 +158,7 @@ export default {
     if (live) sources.push(live);
 
     try {
-      const { answer, ids } = await askGemini(env, sources, sanitizeHistory(payload.history), question);
+      const { answer, ids } = await askOpenAI(env, sources, sanitizeHistory(payload.history), question);
       const byId = new Map(sources.map((s) => [s.id, s]));
       const seen = new Set();
       const cited = ids
