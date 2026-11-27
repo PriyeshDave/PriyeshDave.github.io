@@ -4,8 +4,8 @@ compatibility_date = "2026-10-01"
 workers_dev = true
 
 [vars]
-# Swap to "gemini-3.8-flash" for richer answers (about 3x the cost).
-GEMINI_MODEL = "gemini-3.1-flash-lite"
+# Cheap and predictable. For richer answers try "gpt-5.4-mini" (about 3x the cost).
+OPENAI_MODEL = "gpt-4.1-mini"
 ALLOWED_ORIGINS = "https://priyeshdave.github.io"
 
-# GEMINI_API_KEY is a secret, set by the GitHub Action — never commit it.
+# OPENAI_API_KEY is a secret, set by the GitHub Action — never commit it.
