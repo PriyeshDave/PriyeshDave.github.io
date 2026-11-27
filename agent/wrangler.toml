@@ -1,0 +1,11 @@
+name = "priyesh-portfolio-agent"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[vars]
+# Cheap and predictable. For richer answers try "gpt-5.4-mini" (about 3x the cost).
+OPENAI_MODEL = "gpt-4.1-mini"
+ALLOWED_ORIGINS = "https://priyeshdave.github.io"
+
+# OPENAI_API_KEY is a secret, set by the GitHub Action — never commit it.
