@@ -29,4 +29,5 @@ Pushing to `main` runs `.github/workflows/deploy-agent.yml`, which rebuilds the 
 - `CLOUDFLARE_ACCOUNT_ID` — from the Cloudflare dashboard
 - `OPENAI_API_KEY` — from platform.openai.com
 
+
 After the first deploy, set `AGENT_URL` in `index.html` to the Worker's `workers.dev` URL. To change the model, edit `OPENAI_MODEL` in `wrangler.toml`.
