@@ -37,10 +37,10 @@ jobs:
       - name: Check required secrets
         env:
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          GEMINI: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          if [ -z "$CF_TOKEN" ] || [ -z "$GEMINI" ]; then
-            echo "::error::Add CLOUDFLARE_API_TOKEN and GEMINI_API_KEY in Settings → Secrets and variables → Actions."
+          if [ -z "$CF_TOKEN" ] || [ -z "$OPENAI" ]; then
+            echo "::error::Add CLOUDFLARE_API_TOKEN and OPENAI_API_KEY in Settings → Secrets and variables → Actions."
             exit 1
           fi
 
@@ -51,6 +51,6 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: agent
           secrets: |
-            GEMINI_API_KEY
+            OPENAI_API_KEY
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
