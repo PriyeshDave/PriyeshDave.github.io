@@ -8,4 +8,8 @@ workers_dev = true
 OPENAI_MODEL = "gpt-4.1-mini"
 ALLOWED_ORIGINS = "https://priyeshdave.github.io"
 
+# Visit counter: wrangler 4 creates this KV namespace automatically on first deploy.
+[[kv_namespaces]]
+binding = "VISITS"
+
 # OPENAI_API_KEY is a secret, set by the GitHub Action — never commit it.
