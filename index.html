@@ -624,10 +624,23 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
       <a href="https://x.com/priyeshdave6" class="rv hov"><span class="m">X</span>@priyeshdave6</a>
       <a href="https://instagram.com/beyondtheprompts.ai" class="rv hov"><span class="m">Instagram</span>@beyondtheprompts.ai</a>
     </div>
-    <footer class="m"><span>© 2026 Priyesh Dave · Bengaluru</span><span>Beyond the prompts.</span></footer>
+    <footer class="m"><span>© 2026 Priyesh Dave · Bengaluru</span><span id="visit-count" hidden></span><span>Beyond the prompts.</span></footer>
   </div>
 </section>
 </main>
+<script>
+(function(){
+  var U='https://priyesh-portfolio-agent.priyeshdave6.workers.dev/visits',el=document.getElementById('visit-count'),seen=false;
+  if(!el)return;
+  try{seen=localStorage.getItem('pd_visited')==='1'}catch(e){}
+  fetch(U,{method:seen?'GET':'POST'}).then(function(r){return r.json()}).then(function(d){
+    if(d&&typeof d.count==='number'&&d.count>0){
+      el.textContent=d.count.toLocaleString('en-IN')+(d.count===1?' visit':' visits');el.hidden=false;
+      try{localStorage.setItem('pd_visited','1')}catch(e){}
+    }
+  }).catch(function(){});
+})();
+</script>
 
 <!-- Analytics (GoatCounter, privacy-friendly, no cookies). To enable: sign up at goatcounter.com, then put your site code below, e.g. 'priyeshdave'. -->
 <script>
