@@ -6,6 +6,7 @@ const MAX_QUESTION = 500;      // characters per visitor message
 const MAX_TURNS = 6;           // prior messages kept for context
 const RATE = { limit: 12, windowMs: 60_000 }; // per visitor IP, per isolate
 const hits = new Map();
+const visitHits = new Map(); // visit-counter writes per IP (5 per minute)
 
 const SYSTEM = `You are the portfolio assistant on Priyesh Dave's website (priyeshdave.github.io).
 You answer visitors' questions about Priyesh — his work, projects, skills, experience, writing, speaking and how to contact him.
@@ -27,7 +28,7 @@ function corsHeaders(origin, env) {
   const ok = allowed.includes(origin) || /^http:\/\/localhost(:\d+)?$/.test(origin || "");
   return {
     "Access-Control-Allow-Origin": ok ? origin : allowed[0] || "null",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Max-Age": "86400",
     Vary: "Origin",
@@ -131,6 +132,31 @@ export default {
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
     if (request.method === "GET" && url.pathname === "/health") {
       return json({ ok: true, model: env.OPENAI_MODEL || "gpt-4.1-mini", sources: KNOWLEDGE.length }, 200, cors);
+    }
+    if (url.pathname === "/visits" && (request.method === "GET" || request.method === "POST")) {
+      const okOrigin = !origin || corsHeaders(origin, env)["Access-Control-Allow-Origin"] === origin;
+      if (!okOrigin) return json({ error: "Origin not allowed" }, 403, cors);
+      const noStore = { ...cors, "Cache-Control": "no-store" };
+      if (!env.VISITS) return json({ count: null }, 200, noStore);
+      try {
+        let count = parseInt((await env.VISITS.get("count")) || "0", 10) || 0;
+        if (request.method === "POST") {
+          const ip = request.headers.get("CF-Connecting-IP") || "anon";
+          const now = Date.now();
+          const recent = (visitHits.get(ip) || []).filter((t) => now - t < 60_000);
+          if (recent.length < 5) {
+            recent.push(now);
+            visitHits.set(ip, recent);
+            if (visitHits.size > 5000) visitHits.clear();
+            count += 1;
+            await env.VISITS.put("count", String(count));
+          }
+        }
+        return json({ count }, 200, noStore);
+      } catch (err) {
+        console.error("visits: " + err.message);
+        return json({ count: null }, 200, noStore);
+      }
     }
     if (request.method !== "POST" || url.pathname !== "/ask") return json({ error: "Not found" }, 404, cors);
 
